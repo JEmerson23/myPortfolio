@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
 :root {
-  --shadow-color:rgba(0,0,0,.25);
+  --shadow-color:rgba(0,0,0,0.25);
 }
 
 body {
@@ -28,16 +28,19 @@ body {
   justify-content: space-between;
   align-items: flex-center;
   
-  box-shadow: 2px 2px 6px var(--shadow-color);
+  border-radius: 25%;
+  
+  box-shadow: 1px 3px 6px var(--shadow-color);
+  
   box-sizing: border-box;
 }
 
-.content_indicator {
+.navigation_bar > label {
   color: #0c0c0c;
   text-transform: uppercase;
 }
 
-.content_indicator > input[type=radio]{
+.navigation_bar > label > input[type=radio]{
   all: unset;
 }
 
