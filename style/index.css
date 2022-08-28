@@ -35,12 +35,13 @@ body {
   box-sizing: border-box;
 }
 
-.navigation_bar > label {
+.content_indicator {
   color: #0c0c0c;
   text-transform: uppercase;
+  background-color: blue;
 }
 
-.navigation_bar > label > input[type=radio]{
+.content_indicator > input[type=radio]{
   all: unset;
 }
 
