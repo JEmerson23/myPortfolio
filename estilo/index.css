@@ -1,1 +1,33 @@
-* {}
+:root {
+  --shadow-color:rgba(0,0,0,.25)
+}
+
+body {
+  padding: 0;
+  margin: 0 auto;
+}
+
+.main_header{
+  padding: 0;
+  margin: 0 auto;
+  
+  max-width: 900px;
+}
+
+.navigation_bar {
+  margin: 0 auto;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-center;
+  
+  
+  box-shadow: 2px 2px 6px var(--shadow-color);
+}
+
+@media screen (max-width:412px){
+  .main_header {
+    width: 100vw;
+  }
+  
+}
