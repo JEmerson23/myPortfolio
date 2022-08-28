@@ -28,6 +28,14 @@ body {
   box-sizing: border-box;
 }
 
+.content_indicator {
+  
+}
+
+.content_indicator input[type=radio]{
+  all: unset;
+}
+
 @media (min-width:412px){
   .main_header {
     width: 100vw;
