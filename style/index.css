@@ -33,7 +33,8 @@ body {
 }
 
 .content_indicator {
-  
+  color: #0c0c0c;
+  text-transform: uppercase;
 }
 
 .content_indicator > input[type=radio]{
