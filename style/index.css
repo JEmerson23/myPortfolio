@@ -1,58 +1,192 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 
 :root {
-  --shadow-color:rgba(0,0,0,0.25);
+  --shadow-color: rgba(0, 0, 0, 0.25);
+  --text-light-color: #0c0c0c;
 }
 
 body {
   padding: 0;
   margin: 0 auto;
-  
-  font-family: 'Roboto Condensed', sans-serif;
+
+  font-family: "Roboto Condensed", sans-serif;
 }
 
-.main_header{
-  padding: 0;
+.main_header {
+  padding: 8px 0 0 0;
   margin: 0 auto;
-  
+
   max-width: 900px;
 }
 
 .navigation_bar {
   margin: 0 auto;
-  
+
   max-width: 95%;
-  max-height: 64px;
-  
+  min-height: 64px;
+
   display: flex;
   justify-content: space-between;
-  align-items: flex-center;
-  
-  border-radius: 25%;
-  
-  box-shadow: 1px 3px 6px var(--shadow-color);
-  
+  flex-wrap: nowrap;
+  align-items: center;
+
+  border-radius: 25px;
+
+  box-shadow: 1px 2px 8px var(--shadow-color);
+
   box-sizing: border-box;
 }
 
 .content_indicator {
-  color: #0c0c0c;
+  position: relative;
+
+  max-width: 100px;
+
+  color: var(--text-light-color);
+
+  text-align: center;
   text-transform: uppercase;
-  background-color: blue;
+
+  box-shadow: box-sizing;
 }
 
-.content_indicator > input[type=radio]{
+.content_indicator > input[type="radio"] {
   all: unset;
+  position: absolute;
+  left: 0;
+
+  width: 0%;
+  height: 100%;
+
+  border-radius: 5px;
+
+  background-color: rgba(0, 204, 255, 0.25);
+  transition: width 0.5s;
 }
 
-@media (min-width:412px){
+.content_indicator > input[type="radio"]:checked {
+  width: 100%;
+}
+
+.main_box {
+}
+
+.contents_box {
+  margin: 0 auto;
+
+  max-width: 900px;
+  max-height: auto;
+
+  overflow: hidden;
+}
+
+.content-box {
+  margin: 0 auto;
+  max-width: 900px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  box-shadow: 2px 2px 8px var(--shadow-color);
+}
+
+.my_name {
+  margin-left: 8px;
+
+  align-self: start;
+
+  font-size: ;
+
+  text-align: left;
+  text-decoration-line: underline;
+  text-decoration-color: #310036;
+  text-transform: uppercase;
+}
+
+.summary_about_me {
+  max-width: 90%;
+
+  text-align: justify;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skills__title {
+  margin: 0 auto 0 auto;
+  align-self: center;
+
+  color: var(--text-light-color);
+
+  text-transform: uppercase;
+}
+
+.skills_box {
+  border-top: 3px inset var(--shadow-color);
+  list-style: none;
+}
+
+.skill {
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.footer {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about_link {
+  color: #00012b;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+@media (min-width: 412px) {
   .main_header {
     width: 100vw;
   }
-  
+
   .navigation_bar {
-    height: 48px;
-    
+    height: 32px;
+
+    justify-content: space-around;
+
     font-size: 1em;
+  }
+
+  .content_indicator {
+  }
+
+  .content-box {
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+
+  .my_name {
+    margin-left: 6px;
+    font-size: 1.6em;
+  }
+
+  .summary_about_me {
+    font-size: 1em;
+  }
+
+  .skills__title {
+    font-size: 1.2em;
+  }
+
+  .skills_box {
+    width: 250px;
+    height: 250px;
   }
 }
