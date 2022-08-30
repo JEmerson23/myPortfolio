@@ -1,8 +1,15 @@
+@import url("/style/_screen400px.css");
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 
 :root {
   --shadow-color: rgba(0, 0, 0, 0.25);
   --text-light-color: #0c0c0c;
+  --selection-color: rgba(0, 204, 255, 0.25);
+}
+
+::selection {
+  background-color: var(--selection-color);
 }
 
 body {
@@ -38,6 +45,7 @@ body {
 }
 
 .content_indicator {
+  user-select: none;
   position: relative;
 
   max-width: 100px;
@@ -60,7 +68,7 @@ body {
 
   border-radius: 5px;
 
-  background-color: rgba(0, 204, 255, 0.25);
+  background-color: var(--selection-color);
   transition: width 0.5s;
 }
 
@@ -81,28 +89,30 @@ body {
 }
 
 .content-box {
-  margin: 0 auto;
+  margin: 8px auto;
   max-width: 900px;
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  box-shadow: 2px 2px 8px var(--shadow-color);
 }
 
 .my_name {
   margin-left: 8px;
 
-  align-self: start;
+  align-self: center;
 
-  font-size: ;
+  font-size: 1.4em;
 
   text-align: left;
   text-decoration-line: underline;
   text-decoration-color: #310036;
   text-transform: uppercase;
+}
+
+.my_name::selection {
+  color: #fff;
 }
 
 .summary_about_me {
@@ -128,18 +138,139 @@ body {
 }
 
 .skills_box {
-  border-top: 3px inset var(--shadow-color);
+  padding: 10px 0 0 0;
+
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 400px;
+  max-height: 400px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: row wrap;
+
   list-style: none;
+
+  border-top: 3px inset var(--shadow-color);
 }
 
 .skill {
-  font-size: 1.2em;
+  padding: 0;
+  margin: 8px 8px 8px 8px;
+
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+}
+
+.skill > .fa-brands {
+  font-size: 32px;
+  color: #000;
+}
+
+.skill__label {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -22px;
+
+  text-transform: uppercase;
+
+  transition: opacity 0.5s;
+
+  font-size: 16px;
+}
+
+.skill:hover > .skill__label {
+  opacity: 1;
+}
+
+/*projects*/
+
+.projects__grid {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 6px;
+  grid-row-gap: 6px;
+}
+
+.project,
+.empty-project {
+  width: 150px;
+  height: 180px;
+
+  border-radius: 10px;
+
+  box-shadow: 1px 2px 4px var(--shadow-color);
+}
+
+.empty-project {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+/*contacts*/
+
+.contacts-title {
+  font-size: 1.4em;
   text-transform: uppercase;
 }
 
-.footer {
-  width: 100%;
+.contacts__grid {
+  
+}
 
+.contact {
+  position: relative;
+  
+  width: 64px;
+  
+  
+  border: 1px solid #000;
+  
+  box-sizing: border-box;
+}
+
+.contact__icon {
+  
+}
+
+.contact__link {
+  all: unset;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact__label {
+  font-style: normal;
+  font-size: 14px;
+  
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,13 +284,14 @@ body {
 
 @media (min-width: 412px) {
   .main_header {
+    margin-bottom: 8px;
     width: 100vw;
   }
 
   .navigation_bar {
     height: 32px;
 
-    justify-content: space-around;
+    justify-content: space-around !important;
 
     font-size: 1em;
   }
@@ -173,12 +305,19 @@ body {
   }
 
   .my_name {
-    margin-left: 6px;
-    font-size: 1.6em;
+    position: relative;
+    margin: 32px auto 0 4px;
+
+    align-self: center;
+
+    font-size: 1.5em;
   }
 
   .summary_about_me {
-    font-size: 1em;
+    margin: 0 auto 32px 16px;
+
+    align-self: flex-start;
+    font-size: 1.2em;
   }
 
   .skills__title {
@@ -188,5 +327,56 @@ body {
   .skills_box {
     width: 250px;
     height: 250px;
+
+    overflow: auto;
+  }
+
+  .skill {
+    margin: 6px 6px 6px 6px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .skill > .fa-brands {
+    font-size: 20px;
+  }
+
+  .skill__label {
+    margin: 2px auto 2px auto !important;
+    font-size: 0.9em !important;
+  }
+
+  .projects__grid {
+    width: 380px;
+    height: 500px;
+    
+    place-content: start center;
+    grid-template-columns: repeat(2, 150px);
+    grid-column-gap: auto;
+    grid-row-gap: auto;
+
+    overflow-y:auto;
+    box-sizing: border-box;
+  }
+  
+  .empty-project {
+    color: var(--text-light-color);
+    font-size: 1.2em;
+  }
+  
+  .contacts-title {
+    font-size: 1.2em;
+  }
+  
+  .contact {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .contact__icon {
+    font-size: 28px;
+  }
+  
+  .contact__label {
   }
 }
