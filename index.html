@@ -3,6 +3,9 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="meu portfólio, josé emerson b. de lliveira sou iniciante em web front-end e criador de pixel art"/>
+    <meta name="keywords" content="html, css, javascrip, pixel art, JEmerson23, Emerson23, R3M023, jose emerson b. oliveira"/>
+    <meta name="author" content="Jose Emerson"/>
     <link
       rel="stylesheet"
       href="./style/index.css"
@@ -24,7 +27,6 @@
             name="content"
             id="who_am_i"
             value="0"
-            checked
         /></label>
         <label for="projects" class="content_indicator"
           >projetos<input type="radio" name="content" id="projects" value="1"
@@ -39,41 +41,67 @@
         <section id="my_presentation" class="content-box">
           <h1 class="my_name">josé emerson b. de oliveira</h1>
           <div class="summary_about_me">
-            <p>
-              Mais uma noite como todas as anteriores. Pego minha caneca de café
-              cheia, acendo meu ultimo cigarro e corro pra velha janela do
-              quarto.
-            </p>
+            <p>Iniciante em web front-end.</p>
+            <p>Criador e admirador de pixel art.</p>
           </div>
           <div class="skills">
             <h2 class="skills__title">habilidades</h2>
             <ul class="skills_box">
-              <li class="skill"><i class="fa-brands fa-html5"></i> html</li>
               <li class="skill">
-                <i class="fa-brands fa-css3-alt">css</i>
+                <i class="fa-brands fa-html5"
+                  ></i><i class="skill__label">html</i>
+              </li>
+              <li class="skill">
+                <i class="fa-brands fa-css3-alt"></i>
+                <i class="skill__label">css</i>
               </li>
               <li class="skill">
                 <i class="fa-brands fa-js"> </i>
-                javascript
+                <i class="skill__label">javascript</i>
               </li>
             </ul>
           </div>
         </section>
         <section id="my_projects" class="content-box">
-          <h1>projetos</h1>
-          <nav class="projects_grid"></nav>
-          <h2>ideias de projetos</h2>
-          <nav class="list_of_project_ideas"></nav>
+          <nav class="projects__grid">
+            <div class="empty-project ">
+              logo mais...
+            </div>
+            <div class="empty-project ">
+              logo mais...
+            </div>
+            <div class="empty-project ">
+              logo mais...
+            </div>
+            <div class="empty-project ">
+              logo mais...
+            </div>
+            <div class="empty-project ">
+              logo mais...
+            </div>
+          </nav>
         </section>
         <section id="my_contacts" class="content-box">
-          <h1>contatos</h1>
-          <nav class="contacts_grid"></nav>
+          <h1 class="contacts-title">profissionais</h1>
+          <nav class="contacts__grid">
+          <div class="contact">
+            <span class="contact__icon">
+              <i class="fa-solid fa-address-book"></i>
+            </span>
+            <a class="contact__link" href="#"></a>
+            <i class="contact__label">legenda</i>
+          </div>
+          </nav>
+          <h2 class="contacts-title">pessoais</h2>
+          <nav class="contacts__grid">
+            
+          </nav>
         </section>
       </div>
     </main>
     <footer class="footer">
-      <a href="/about.html" class="about_link">sobre</a>
+      <a href="/about.html" class="about_link" target="_blank">sobre</a>
     </footer>
-    <script src="/scriptsJS/index.js" type="module"></script>
+    <script src="/scripts/index.js" type="module"></script>
   </body>
 </html>
