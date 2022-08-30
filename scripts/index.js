@@ -1,5 +1,5 @@
 const rememberLater = {
-contentCheckedButton: null
+  contentCheckedButton: null,
 };
 
 const contentButton = document.getElementsByName("content");
@@ -19,19 +19,19 @@ function changeContent() {
     if (element.checked) {
       switch (element.value) {
         case "0":
-          localStorage.setItem("contentCheckedButton","0");
+          localStorage.setItem("contentCheckedButton", "0");
           myPresentation.style.display = "flex";
           myProjects.style.display = "none";
           myContacts.style.display = "none";
           break;
         case "1":
-          localStorage.setItem("contentCheckedButton","1");
+          localStorage.setItem("contentCheckedButton", "1");
           myPresentation.style.display = "none";
           myProjects.style.display = "flex";
           myContacts.style.display = "none";
           break;
         case "2":
-          localStorage.setItem("contentCheckedButton","2");
+          localStorage.setItem("contentCheckedButton", "2");
           myPresentation.style.display = "none";
           myProjects.style.display = "none";
           myContacts.style.display = "flex";
@@ -41,12 +41,14 @@ function changeContent() {
   });
 }
 
-window.onload = function(){
-  if(!localStorage.contentCheckedButton){
-   localStorage.setItem("contentCheckedButton","0");
+window.onload = function () {
+  if (!localStorage.contentCheckedButton) {
+    localStorage.setItem("contentCheckedButton", "0");
   } else {
-    rememberLater.contentCheckedButton = localStorage.getItem("contentCheckedButton");
+    rememberLater.contentCheckedButton = localStorage.getItem(
+      "contentCheckedButton"
+    );
   }
-  contentButton[rememberLater.contentCheckedButton-0].checked = true;
+  contentButton[rememberLater.contentCheckedButton - 0].checked = true;
   changeContent();
 };
