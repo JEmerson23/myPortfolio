@@ -14,3 +14,11 @@ export function changeContent() {
 }
 
 contentButton.forEach((element) => (element.onclick = changeContent));
+
+export function rememberPage(){
+  if(!localStorage.contentCheckedButton){
+   localStorage.setItem("contentCheckedButton","0");
+  }
+  
+  return Number(localStorage.getItem("contentCheckedButton"));
+}
