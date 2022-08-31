@@ -1,2 +1,2 @@
 #ignore my contact info 
-/src/contacts.json
+.git/info/exclude/src/contacts.json
