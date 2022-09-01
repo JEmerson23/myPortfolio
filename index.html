@@ -2,54 +2,62 @@
 <html lang="pt-br">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <meta name="description" content="meu portfólio, josé emerson b. de lliveira sou iniciante em web front-end e criador de pixel art"/>
+    
     <meta name="keywords" content="html, css, javascrip, pixel art, JEmerson23, Emerson23, R3M023, jose emerson b. oliveira"/>
+   
     <meta name="author" content="Jose Emerson"/>
-    <link
-      rel="stylesheet"
-      href="./style/index.css"
-      type="text/css"
-      media="all"
-    />
+    
+    <link rel="stylesheet" href="./style/index.css" type="text/css" media="all"/>
+    
+    <link rel="stylesheet" href="./style/media-queries.css" type="text/css" media="all"/>
+    
     <script
       src="https://kit.fontawesome.com/014d3ff3b9.js"
       crossorigin="anonymous"
     ></script>
+    
     <title>JEmerson23</title>
   </head>
   <body>
-    <header class="main_header">
-      <nav class="navigation_bar">
-        <label for="who_am_i" class="content_indicator"
+    <header class="main__header">
+      <nav class="menu">
+        <label for="who_am_i" class="content-indicator"
           >quem sou<input
             type="radio"
             name="content"
             id="who_am_i"
             value="0"
         /></label>
-        <label for="projects" class="content_indicator"
+        <label for="projects" class="content-indicator"
           >projetos<input type="radio" name="content" id="projects" value="1"
         /></label>
-        <label for="contacts" class="content_indicator"
+        <label for="contacts" class="content-indicator"
           >contatos<input type="radio" name="content" id="contacts" value="2"
         /></label>
       </nav>
     </header>
-    <main class="main_box">
-      <div id="contents" class="contents_box">
-        <section id="my_presentation" class="content-box">
-          <h1 class="my_name">josé emerson b. de oliveira</h1>
-          <div class="summary_about_me">
-            <p>Iniciante em web front-end.</p>
-            <p>Criador e admirador de pixel art.</p>
+    <main class="main__box">
+      <div id="contents" class="contents__area ">
+        <section id="my_presentation" class="content__box">
+          <div class="presentation__box">
+            <h1 class="my-name">josé emerson b. de oliveira</h1>
+            <div class="summary__about__me">
+             <p>Iniciante em web front-end.</p>
+             <p>Criador e admirador de pixel art.</p>
+           </div>
           </div>
-          <div class="skills">
+          <div class="skills__box">
             <h2 class="skills__title">habilidades</h2>
-            <ul class="skills_box">
+            <ul class="skills__list">
               <li class="skill">
-                <i class="fa-brands fa-html5"
-                  ></i><i class="skill__label">html</i>
+                <i class="fa-brands fa-html5"></i>
+                <i class="skill__label">
+                  html
+                </i>
               </li>
               <li class="skill">
                 <i class="fa-brands fa-css3-alt"></i>
@@ -62,26 +70,14 @@
             </ul>
           </div>
         </section>
-        <section id="my_projects" class="content-box">
+        <section id="my_projects" class="content__box">
           <nav class="projects__grid">
-            <div class="empty-project ">
-              logo mais...
-            </div>
-            <div class="empty-project ">
-              logo mais...
-            </div>
-            <div class="empty-project ">
-              logo mais...
-            </div>
-            <div class="empty-project ">
-              logo mais...
-            </div>
             <div class="empty-project ">
               logo mais...
             </div>
           </nav>
         </section>
-        <section id="my_contacts" class="content-box">
+        <section id="my_contacts" class="content__box">
           <nav id="contacts_list" class="contacts__grid">
           </nav>
         </section>
