@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+@import url("/style/_root.css");
+
+/*media < 600px*/
+@media screen and (max-width:480px){
+  .main__header {
+    width: 100vw;
+  }
+
+  .menu {
+  }
+
+  .content-indicator {
+    
+  }
+
+  .main__box {
+    box-shadow: none;
+  }
+
+  .presentation__box {
+    margin: 5% 0 5% 5%;
+    align-self: flex-start;
+  }
+
+  .my-name {
+   
+  }
+  
+  .presentation__box > .my-name {
+    text-indent: .5em;
+  }
+
+  .summary__about__me {
+  
+  }
+  
+  .summary__about__me > p {
+    line-height: 20px;
+  }
+
+  .skills__title {
+  }
+
+  .skills__list {
+  }
+
+  .skill {
+    width: 2em;
+    height: 2em;
+  }
+  
+  .skills__list > .skill {
+    margin: 6px auto;
+  }
+  
+  .skill > .fa-brands {
+    font-size: 1.2em;
+  }
+
+  .skill__label {
+    font-size: 0.9em;
+  }
+
+  .projects__grid {
+    width: 380px;
+    height: 500px;
+    
+    place-content: start center;
+    grid-template-columns: repeat(2, 150px);
+    grid-column-gap: auto;
+    grid-row-gap: auto;
+
+    overflow-y:auto;
+    box-sizing: border-box;
+  }
+  
+  .empty-project {
+    color: var(--text-light-color);
+    font-size: 1.2em;
+  }
+  
+  .contacts-title {
+    font-size: 1.2em;
+  }
+  
+  .contacts__grid > .contact {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .contact__icon {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-481px) and (max-width:768px) {
+  .menu {
+  }
+}
