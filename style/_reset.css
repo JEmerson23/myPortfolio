@@ -1,8 +1,20 @@
+@charset "UTF-8";
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
+::selection {
+  background-color: var(--selection-color);
+}
 
 body {
   padding: 0;
   margin: 0 auto;
   
   font-family: "Roboto Condensed", sans-serif;
+}
+
+.main__header, .main__box{
+  margin: 0 auto;
+  padding: 0;
+  max-width: 900px;
 }
