@@ -23,7 +23,7 @@
     <title>JEmerson23</title>
   </head>
   <body>
-    <header class="main__header">
+    <header id="main_header" class="main__header">
       <nav class="menu">
         <label for="who_am_i" class="content-indicator"
           >quem sou<input
@@ -41,14 +41,14 @@
       </nav>
     </header>
     <main class="main__box">
-      <div id="contents" class="contents__area ">
+      <section id="contents" class="contents__area ">
         <section id="my_presentation" class="content__box">
           <div class="presentation__box">
             <h1 class="my-name">josé emerson b. de oliveira</h1>
             <div class="summary__about__me">
-             <p>Iniciante em web front-end.</p>
-             <p>Criador e admirador de pixel art.</p>
-           </div>
+              <p>Iniciante em web front-end.</p>
+              <p>Criador e admirador de pixel art.</p>
+            </div>
           </div>
           <div class="skills__box">
             <h2 class="skills__title">habilidades</h2>
@@ -71,21 +71,22 @@
           </div>
         </section>
         <section id="my_projects" class="content__box">
-          <nav class="projects__grid">
-            <div class="empty-project ">
+          <ul class="projects__grid">
+            <li class="empty-project ">
               logo mais...
-            </div>
-          </nav>
+            </li>
+            <li class="project">
+              <img src="/src/projects_image/my_portfolio.jpg" alt="My portfolio" class="project__image" />
+              <a href="#" class="project__link">projeto teste de link</a>
+            </li>
+          </ul>
         </section>
         <section id="my_contacts" class="content__box">
           <nav id="contacts_list" class="contacts__grid">
           </nav>
         </section>
-      </div>
+      </section>
     </main>
-    <footer class="footer">
-      <a href="/about.html" class="about__link" target="_blank">sobre</a>
-    </footer>
     <script src="/scripts/index.js" type="module"></script>
   </body>
 </html>
