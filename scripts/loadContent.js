@@ -1,6 +1,6 @@
 function Contact(link,icon,label) {
  
- const contactBox = document.createElement("div"),
+ const contactBox = document.createElement("span"),
  contactLink = document.createElement("a"),
  contactIcon = document.createElement("i"),
  contactLabel = document.createElement("i");
@@ -24,6 +24,19 @@ function Contact(link,icon,label) {
  
 }
 
+function Project(path,anchor,where){
+  this.path = path;
+  this.anchor = anchor;
+  
+  let elementImage = document.createElement("img");
+  
+  elementImage.src = `${this.path.project.imagePath}${this.anchor.innerText.toLowerCase()}${this.path.project.imageExtension}`;
+  
+  elementImage.setAttribute('alt',this.anchor.innerText);
+  
+  where.appendChild(elementImage);
+}
+
 export function loadContacts(){
     fetch('/src/contacts.json')
     .then(response => response.json())
@@ -36,5 +49,38 @@ export function loadContacts(){
       
       let contact = new Contact(link,icon,label).addIn(document.getElementById("contacts_list"));
    }
-    })
+    });
+}
+
+export function loadProjects(){
+  fetch("/src/projects.json")
+  .then(response => response.json())
+  .then(data => {
+    const projects = document.getElementsByClassName("project");
+    
+    //intera por todos os projetos
+    for(let i = 0; i < projects.length;i++){
+      //verifica se o projeto tem nome/link
+      if(projects[i].hasChildNodes){
+        //pega todos os elementos do projeto
+        let childs = projects[i].childNodes;
+        
+        if(childs.length == 0)continue;
+        
+        //procura pela tag <a>
+        const name = (function(){
+          for(let c = 0; c < childs.length; c++){
+            if(childs[c].localName === "a")return childs[c];
+          }
+          return false;
+        }());
+        
+        name.setAttribute('href',`${data.githubPage}${name.innerText}`);
+        name.setAttribute('href',`${data.githubPage}${name.innerText}`);
+        
+        const project = new Project(data,name,projects[i]);
+      }
+    }
+  });
+  
 }
