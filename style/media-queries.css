@@ -5,16 +5,13 @@
 /*media < 600px*/
 
 @media screen and (max-width:480px){
-  .main__header {
-    width: 100vw;
-  }
-
   .main__box {
     box-shadow: none;
   }
 
   .presentation__box {
-    margin: 2% 0 5% 5%;
+    margin: 0 auto 2% 4%;
+    max-width: 98%;
     align-self: flex-start;
   }
 
@@ -23,11 +20,7 @@
   }
 
   .summary__about__me {
-    margin-left: 4px;
-  }
-  
-  .summary__about__me > p {
-    line-height: 20px;
+    margin-left: 2em;
   }
 
   .skill {
@@ -49,8 +42,8 @@
 
   .projects__grid {
     box-sizing: border-box;
-    
-    gap: 6px;
+    width: 99%;
+    gap: 8px;
     grid-template-columns: repeat(2, 150px);
     place-content: start center;
   }
@@ -76,11 +69,22 @@
   .menu {
   }
   
+  .presentation__box {
+    width: 99%;
+  }
+  
   .projects__grid {
     grid-template-columns: repeat(3,1fr);
   }
+
 }
 
 @media screen and (min-width: 769px) and (max-width: 900px){
   
+}
+
+@media screen and (max-width:900px){
+  .main__header {
+    width: 100vw;
+  }
 }
