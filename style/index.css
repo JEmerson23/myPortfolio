@@ -3,8 +3,6 @@
 @import url("/style/_reset.css");
 
 .main__header {
-  padding: 8px 0 0 0;
-  
   max-width: 900px;
   
   background-color: #fff;
@@ -16,7 +14,7 @@
   
   box-sizing: border-box;
   
-  margin: 0 auto;
+  margin: 1% auto 0 auto;
 
   display: flex;
   justify-content: space-evenly;
@@ -70,25 +68,23 @@
   padding: 0;
 
   max-width: 900px;
-  min-height: 900px;
-  
-  box-shadow: 2px 3px 8px var(--shadow-color);
 }
 
 .contents__area  {
   margin: 0 auto;
-
-  max-width: 900px;
-  max-height: 100%  ;
-
-  overflow: hidden;
-}
-
-.content__box {
-  margin: 16px auto 16px auto;
   padding-top: 2%;
   
   max-width: 900px;
+  min-height: 100vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.content__box {
+  margin: 0 auto 0 auto;
+  
+  max-width: 99%;
 
   display: flex;
   align-items: center;
@@ -97,7 +93,8 @@
 }
 
 .presentation__box {
-  margin: 16px auto 16px auto;
+  max-width: 400px;
+  margin: 1em auto 1em auto;
   align-self: center;
 }
 
@@ -116,11 +113,18 @@
   color: #fff;
 }
 
+.summary__about__me {
+  width: 100%;
+}
+
 .summary__about__me > p {
+  max-width: 99%;
+  
   font-size: 1.3em;
-  line-height: 10px;
-  text-indent: .8em;
+  overflow-wrap: break-word;
   text-align: left;
+  word-break: break-word;
+  word-wrap: break-word;
 }
 
 .skills__box {
@@ -144,7 +148,7 @@
 }
 
 .skills__list {
-  padding: 10px 0 0 0;
+  padding-top: 10px;
   
   width: 50%;
   min-width: 200px;
@@ -209,12 +213,15 @@
 /*projects*/
 
 .projects__grid {
-  position: relative;
+  padding: 0;
   width: 90%;
+  
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(4, 1fr);
-  place-items: center;
+  place-content: center;
+  place-self: center;
+  
   list-style: none;
 }
 
@@ -223,22 +230,43 @@
   width: 150px;
   height: 180px;
 
+  display: flex;
+
   border-radius: 10px;
 
   box-shadow: 1px 2px 4px var(--shadow-color);
 }
 
 .project {
+ position: relative;
  box-sizing: border-box; 
+ padding: 0;
+ 
+ justify-content: center;
+ flex-direction: column;
+ flex-wrap: wrap;
 }
 
 .project > img {
-  width: 100%;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.project > a {
+  position: absolute;
+  left: auto;
+  right: auto;
+  bottom: 1%;
+  
+  color: var(--text-light-color);
+  font-size: 1em;
+  text-align: center;
+  text-decoration-color: #20d2ff;
 }
 
 .empty-project {
   opacity: .5;
-  display: flex;
+  
   justify-content: center;
   align-content: center;
   align-items: center;
@@ -303,4 +331,8 @@
 
 .contact:active {
   border: 1px solid var(--selection-color);
+}
+
+.projects__grid, .contacts__grid {
+  margin-top: 3%;
 }
