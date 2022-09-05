@@ -1,9 +1,11 @@
+import * as $ from "/lib/abstractions.js";
+
 function Contact(link,icon,label) {
  
- const contactBox = document.createElement("span"),
- contactLink = document.createElement("a"),
- contactIcon = document.createElement("i"),
- contactLabel = document.createElement("i");
+ const contactBox = $.select("<span"),
+ contactLink = $.select("<a"),
+ contactIcon = $.select("<i"),
+ contactLabel = $.select("<i");
   
  contactIcon.setAttribute('class',`${icon} contact__icon`);
  contactLink.setAttribute('href',link);
@@ -28,7 +30,7 @@ function Project(path,anchor,where){
   this.path = path;
   this.anchor = anchor;
   
-  let elementImage = document.createElement("img");
+  let elementImage = $.select("<img");
   
   elementImage.src = `${this.path.project.imagePath}${this.anchor.innerText.toLowerCase()}${this.path.project.imageExtension}`;
   
@@ -47,7 +49,7 @@ export function loadContacts(){
       
       if(!link || !icon || !label)continue;
       
-      let contact = new Contact(link,icon,label).addIn(document.getElementById("contacts_list"));
+      let contact = new Contact(link,icon,label).addIn($.select("#contacts_list"));
    }
     });
 }
@@ -56,7 +58,7 @@ export function loadProjects(){
   fetch("/src/projects.json")
   .then(response => response.json())
   .then(data => {
-    const projects = document.getElementsByClassName("project");
+    const projects = $.select(".project");
     
     //intera por todos os projetos
     for(let i = 0; i < projects.length;i++){
