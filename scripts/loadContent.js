@@ -51,7 +51,7 @@ export function loadContacts() {
       );
     }
   }
-  if(window.fetch){
+  if(false){
     fetch("/src/contacts.json")
     .then((response) => response.json())
     .then(data => load(data))
