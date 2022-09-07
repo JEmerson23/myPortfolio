@@ -1,88 +1,108 @@
 import * as $ from "/lib/abstractions.js";
 
-function Contact(link,icon,label) {
- 
- const contactBox = $.select("<span"),
- contactLink = $.select("<a"),
- contactIcon = $.select("<i"),
- contactLabel = $.select("<i");
-  
- contactIcon.setAttribute('class',`${icon} contact__icon`);
- contactLink.setAttribute('href',link);
- contactLink.setAttribute('target','_blank');
+function Contact(link, icon, label) {
+  const contactBox = $.select("<span"),
+    contactLink = $.select("<a"),
+    contactIcon = $.select("<i"),
+    contactLabel = $.select("<i");
 
- contactLabel.textContent = label;
-  
- contactBox.setAttribute('class','contact');
- contactLink.setAttribute('class','contact__link');
- contactLabel.setAttribute('class','contact__label');
+  contactIcon.setAttribute("class", `${icon} contact__icon`);
+  contactLink.setAttribute("href", link);
+  contactLink.setAttribute("target", "_blank");
 
- this.addIn = (where) => {
+  contactLabel.textContent = label;
+
+  contactBox.setAttribute("class", "contact");
+  contactLink.setAttribute("class", "contact__link");
+  contactLabel.setAttribute("class", "contact__label");
+
+  this.addIn = (where) => {
     contactBox.appendChild(contactIcon);
     contactBox.appendChild(contactLink);
     contactBox.appendChild(contactLabel);
     where.appendChild(contactBox);
- };
- 
+  };
 }
 
-function Project(path,anchor,where){
+function Project(path, anchor, where) {
   this.path = path;
   this.anchor = anchor;
-  
+
   let elementImage = $.select("<img");
-  
-  elementImage.src = `${this.path.project.imagePath}${this.anchor.innerText.toLowerCase()}${this.path.project.imageExtension}`;
-  
-  elementImage.setAttribute('alt',this.anchor.innerText);
-  
+
+  elementImage.src = `${
+    this.path.project.imagePath
+  }${this.anchor.innerText.toLowerCase()}${this.path.project.imageExtension}`;
+
+  elementImage.setAttribute("alt", this.anchor.innerText);
+
   where.appendChild(elementImage);
 }
 
-export function loadContacts(){
-    fetch('/src/contacts.json')
-    .then(response => response.json())
-    .then(data => {
-    for(let i = 0; i < data.contact.length; i++){
-      
-      let {link, icon, label} = data.contact[i];
-      
-      if(!link || !icon || !label)continue;
-      
-      let contact = new Contact(link,icon,label).addIn($.select("#contacts_list"));
-   }
+export function loadContacts() {
+  function load(data) {
+    for (let i = 0; i < data.contact.length; i++) {
+      let { link, icon, label } = data.contact[i];
+
+      if (!link || !icon || !label) continue;
+
+      let contact = new Contact(link, icon, label).addIn(
+        $.select("#contacts_list")
+      );
+    }
+  }
+  if(window.fetch){
+    fetch("/src/contacts.json")
+    .then((response) => response.json())
+    .then(data => load(data))
+    .catch(function(error){
+     console.error(`erro em fetch ${error.message}`);
+    });
+  }else {
+    requestJSON("/src/contact.json",function(data){
+      console.log(data);
+    });
+  }
+}
+
+export function loadProjects() {
+  fetch("/src/projects.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const projects = $.select(".project");
+
+      //intera por todos os projetos
+      for (let i = 0; i < projects.length; i++) {
+        //verifica se o projeto tem nome/link
+        if (projects[i].hasChildNodes) {
+          //pega todos os elementos do projeto
+          let childs = projects[i].childNodes;
+
+          if (childs.length == 0) continue;
+
+          //procura pela tag <a>
+          const name = (function () {
+            for (let c = 0; c < childs.length; c++) {
+              if (childs[c].localName === "a") return childs[c];
+            }
+            return false;
+          })();
+
+          name.setAttribute("href", `${data.githubPage}${name.innerText}`);
+          name.setAttribute("href", `${data.githubPage}${name.innerText}`);
+
+          const project = new Project(data, name, projects[i]);
+        }
+      }
     });
 }
 
-export function loadProjects(){
-  fetch("/src/projects.json")
-  .then(response => response.json())
-  .then(data => {
-    const projects = $.select(".project");
-    
-    //intera por todos os projetos
-    for(let i = 0; i < projects.length;i++){
-      //verifica se o projeto tem nome/link
-      if(projects[i].hasChildNodes){
-        //pega todos os elementos do projeto
-        let childs = projects[i].childNodes;
-        
-        if(childs.length == 0)continue;
-        
-        //procura pela tag <a>
-        const name = (function(){
-          for(let c = 0; c < childs.length; c++){
-            if(childs[c].localName === "a")return childs[c];
-          }
-          return false;
-        }());
-        
-        name.setAttribute('href',`${data.githubPage}${name.innerText}`);
-        name.setAttribute('href',`${data.githubPage}${name.innerText}`);
-        
-        const project = new Project(data,name,projects[i]);
-      }
-    }
-  });
-  
+function requestJSON(url,callBack){
+  const request = new XMLHttpRequest();
+  request.onload = function(data){
+    callBack(data);
+  };
+  request.open('GET',url);
+  request.responseType = "json";
+  request.send();
 }
