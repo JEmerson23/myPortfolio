@@ -18,6 +18,10 @@ body {
   font-family: "Roboto Condensed", sans-serif;
 }
 
+strong {
+  font-weight: 500;
+}
+
 .main__header, .main__box{
   margin: 0 auto;
   max-width: 900px;
