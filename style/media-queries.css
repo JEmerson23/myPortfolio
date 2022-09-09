@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-@import url("https://jemerson23.github.io/myPortfolio/style/_root.css");
-
 /*media < 600px*/
 
 @media screen and (max-width:480px){
