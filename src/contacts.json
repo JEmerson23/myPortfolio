@@ -14,6 +14,11 @@
       "link": "https://www.instagram.com/emerson23_dev/",
       "icon": "fa-brands fa-square-instagram",
       "label": "instagram"
+    },
+    {
+     "link": "https://www.codewars.com/users/Emerson23",
+     "icon": "fa-brands fa-square-codewars",
+     "label": "codewars"
     }
   ]
 }
