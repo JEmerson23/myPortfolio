@@ -1,4 +1,4 @@
-import * as $ from "/lib/abstractions.js";
+import * as $ from "https://jemerson23.github.io/myPortfolio/lib/abstractions.js";
 
 function Contact(link, icon, label) {
   const contactBox = $.select("<span"),
@@ -51,41 +51,30 @@ export function loadContacts() {
       );
     }
   }
-  if (window.fetch) {
-    fetch("/src/contacts.json")
-      .then((response) => response.json())
-      .then((data) => load(data))
-      .catch(function (error) {
-        console.error(`erro em fetch ${error.message}`);
-      });
-  } else {
-    $.requestJSON("/src/contacts.json", function (data) {
-     load(data);
-    });
-  }
+  $.requestJSON("https://jemerson23.github.io/myPortfolio/src/contacts.json",load);
 }
 
 export function loadProjects() {
-  function load(data){
-   const projects = $.select(".project");
+  function load(data) {
+    const projects = $.select(".project");
 
-  //intera por todos os projetos
-  for (let i = 0; i < projects.length; i++) {
-        //verifica se o projeto tem nome/link
-        if (projects[i].hasChildNodes) {
-          //pega todos os elementos do projeto
+    //intera por todos os projetos
+    for (let i = 0; i < projects.length; i++) {
+      //verifica se o projeto tem nome/link
+      if (projects[i].hasChildNodes) {
+        //pega todos os elementos do projeto
         let childs = projects[i].childNodes;
 
         if (childs.length == 0) continue;
 
         //procura pela tag <a>
         const name = (function (childs) {
-            for (let c = 0; c < childs.length; c++) {
-              if (childs[c].localName === "a") return childs[c];
-            }
-            return false;
+          for (let c = 0; c < childs.length; c++) {
+            if (childs[c].localName === "a") return childs[c];
+          }
+          return false;
         })(childs);
-          
+
         name.setAttribute("href", `${data.githubPage}${name.innerText}`);
         name.setAttribute("href", `${data.githubPage}${name.innerText}`);
 
@@ -93,17 +82,8 @@ export function loadProjects() {
       }
     }
   }
-    
-  if(window.fetch) {
-   fetch("/src/projects.json")
-   .then((response) => response.json())
-   .then(data => load(data))
-   .catch(function(e){
-     console.error(`erro em fetch problema ao carregar projects.json ${e}`);
-   });
-  } else {
-    $.requestJSON("/src/projects.json",function(data){
-      load(data);
-    });
-  }
+  $.requestJSON(
+    "https://jemerson23.github.io/myPortfolio/src/projects.json",
+    load
+  );
 }

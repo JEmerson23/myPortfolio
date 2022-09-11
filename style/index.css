@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import "/style/reset.css";
+@import "https://jemerson23.github.io/myPortfolio/style/reset.css";
 
 :root {
   --shadow-color: rgba(0, 0, 0, 0.25);
