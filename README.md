@@ -10,3 +10,14 @@ _EX.:_
    <a>myPortfolio</a>
   </li>
 ```
+
+* Para adicionar um novo contato adicione um objeto com os seguintes elementos  
+ ```
+   { 
+    "link": "link da sua rede social",
+    "icone": "icone do site https://fontawesome.com/",
+    "label": "nome da rede social"
+   }
+ ```  
+ na array "contact" em ```/src/contacts.json```
+  
