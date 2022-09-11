@@ -76,7 +76,6 @@ export function loadProjects() {
         })(childs);
 
         name.setAttribute("href", `${data.githubPage}${name.innerText}`);
-        name.setAttribute("href", `${data.githubPage}${name.innerText}`);
 
         const project = new Project(data, name, projects[i]);
       }
