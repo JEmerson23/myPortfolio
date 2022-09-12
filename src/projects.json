@@ -1,8 +1,7 @@
 {
   "githubPage": "https://github.com/JEmerson23/",
-  "projects": {
-     "imagePath": "https://jemerson23.github.io/myPortfolio/src/projects_image/",
-     "imageExtension": ".jpg"
-    }
-  
+  "project": {
+    "imagePath": "https://jemerson23.github.io/myPortfolio/src/projects_image/",
+    "imageExtension": ".jpg"
+  }
 }
