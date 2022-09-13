@@ -24,19 +24,7 @@ function Contact(link, icon, label) {
   };
 }
 
-function Project(path, anchor, where) {
-  this.path = path;
-  this.anchor = anchor;
-
-  let elementImage = $.select("<img");
-
-  elementImage.src = `${
-    this.path.project.imagePath
-  }${this.anchor.innerText.toLowerCase()}${this.path.project.imageExtension}`;
-
-  elementImage.setAttribute("alt", this.anchor.innerText);
-
-  where.appendChild(elementImage);
+function Project() {
 }
 
 export function loadContacts() {
