@@ -1,7 +1,11 @@
 {
   "githubPage": "https://github.com/JEmerson23/",
-  "project": {
-    "imagePath": "https://jemerson23.github.io/myPortfolio/src/projects_image/",
-    "imageExtension": ".jpg"
-  }
+  "project": [
+    {
+      "title": "My Portfolio",
+      "image": "/src/projects_image/myportfolio.jpg",
+      "description": "testando o tamanho do texto da descrição do projeto para ver qual o limite máximo para poder aplicar o estilo de forma correta.",
+      "link": "#"
+    }
+  ]
 }

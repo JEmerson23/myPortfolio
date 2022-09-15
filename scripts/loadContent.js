@@ -1,4 +1,4 @@
-import * as $ from "https://jemerson23.github.io/myPortfolio/lib/abstractions.js";
+import * as $ from "/lib/abstractions.js";
 
 function Contact(link, icon, label) {
   const contactBox = $.select("<span"),
@@ -24,7 +24,36 @@ function Contact(link, icon, label) {
   };
 }
 
-function Project() {
+function Project(title,image,description,link) {
+  const self = this;
+  this.title = title;
+  this.image = image;
+  this.description = description;
+  this.link = link;
+  
+  //criando projeto
+  
+  this.createIn = function(where) {
+    where = $.select(`#${where}`);
+    let projectBox = $.select("<li .project"), projectImageBox = $.select("<figure .project__img_box"), projectImage = $.select("<img"), projectTitle = $.select("<a .project__title"), ProjectDescription = $.select("<p .project__discription");
+    
+    projectTitle.innerText = this.title;
+    projectTitle.setAttribute('href',this.link);
+    
+    let img = new Image();
+    img.onload = function(){
+      projectImage.src = image;
+    }
+    img.src = this.image;
+    
+    ProjectDescription.innerText = this.description;
+    
+    projectBox.appendChild(projectTitle);
+    projectImageBox.appendChild(projectImage);
+    projectBox.appendChild(projectImageBox);
+    projectBox.appendChild(ProjectDescription);
+    where.insertBefore(projectBox,$.select(".empty-project")[0]);
+  }
 }
 
 export function loadContacts() {
@@ -43,34 +72,18 @@ export function loadContacts() {
 }
 
 export function loadProjects() {
-  function load(data) {
-    const projects = $.select(".project");
-
-    //intera por todos os projetos
-    for (let i = 0; i < projects.length; i++) {
-      //verifica se o projeto tem nome/link
-      if (projects[i].hasChildNodes) {
-        //pega todos os elementos do projeto
-        let childs = projects[i].childNodes;
-
-        if (childs.length == 0) continue;
-
-        //procura pela tag <a>
-        const name = (function (childs) {
-          for (let c = 0; c < childs.length; c++) {
-            if (childs[c].localName === "a") return childs[c];
-          }
-          return false;
-        })(childs);
-
-        name.setAttribute("href", `${data.githubPage}${name.innerText}`);
-
-        const project = new Project(data, name, projects[i]);
-      }
+  console.log("[carregando projetos...]");
+  function load(data){
+    for(let project of data.project){
+      let {title,image,description,link} = project;
+      
+      let p = new Project(title,image,description,link).createIn("projects_list")
+      console.log(p)
     }
   }
+
   $.requestJSON(
-    "https://jemerson23.github.io/myPortfolio/src/projects.json",
+  "/src/projects.json",
     load
   );
 }

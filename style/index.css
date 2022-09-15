@@ -6,6 +6,8 @@
   --shadow-color: rgba(0, 0, 0, 0.25);
   --text-light-color: #0c0c0c;
   --selection-color: rgba(0, 204, 255, 0.25);
+  --link-color: #2ea9ff;
+  --link-onclick-color: #0078cc;
 }
 
 .main__header {
@@ -218,27 +220,33 @@
 
 .projects__grid {
   padding: 0;
-  width: 90%;
+  width: 95%;
   
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  place-content: center;
-  place-self: center;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   
   list-style: none;
 }
 
+.projects__grid > .project, .empty-project {
+  margin: .5em auto .5em auto;
+}
+
 .project,
 .empty-project {
-  width: 150px;
-  height: 180px;
-
+  width: 350px;
+  height: 250px;
+  
   display: flex;
-
-  border-radius: 10px;
-
-  box-shadow: 1px 2px 4px var(--shadow-color);
+  
+  background-color: #fff;
+  
+  border-radius: 10px ;
+  
+  box-shadow: 2px 2px 4px var(--shadow-color);
 }
 
 .project {
@@ -246,26 +254,57 @@
  box-sizing: border-box; 
  
  justify-content: center;
+ align-items: center;
  flex-direction: column;
  flex-wrap: wrap;
 }
 
-.project > img {
+.project__title {
+  margin: 4px 0 6px 6px;
+  
+  color: var(--link-color);
+  font-size: 1.4em;
+  text-decoration: none;
+  
+  transition: .5s;
+}
+
+.project__title:hover {
+  text-decoration: underline;
+}
+
+.project__title:active {
+  color: var(--link-onclick-color);
+}
+
+
+.project__img_box > img {
   margin: 0 auto;
   width: 95%;
 }
 
-.project > a {
-  align-self: center;
-  position: absolute;
-  left: auto;
-  right: auto;
-  bottom: 1%;
+.project__img_box {
+  margin: 0 auto;
   
-  color: var(--text-light-color);
-  font-size: 1em;
-  text-align: center;
-  text-decoration-color: #20d2ff;
+  height: 100px;
+  
+  border-radius: 10px;
+  
+  opacity: 1;
+  
+  overflow-y: hidden;
+  
+  transition: .5s;
+}
+
+.project__discription {
+  margin: 8px auto 4px auto;
+  width: 95%;
+  height: 90px;
+  
+  overflow-y: hidden;
+  
+  text-align: left;
 }
 
 .empty-project {

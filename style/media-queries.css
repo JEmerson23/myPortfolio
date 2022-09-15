@@ -37,19 +37,7 @@
   .skill__label {
     font-size: 0.9em;
   }
-
-  .projects__grid {
-    box-sizing: border-box;
-    width: 99%;
-    gap: 8px;
-    grid-template-columns: repeat(2, 150px);
-    place-content: start center;
-  }
   
-  .empty-project {
-    color: var(--text-light-color);
-    font-size: 1.2em;
-  }
   
   .contacts__grid {
     grid-template-columns: repeat(4,1fr);
@@ -70,10 +58,7 @@
   .presentation__box {
     width: 99%;
   }
-  
-  .projects__grid {
-    grid-template-columns: repeat(3,1fr);
-  }
+ 
 
 }
 
