@@ -94,5 +94,5 @@ export function loadProjects() {
     }
   }
 
-  $.requestJSON("/src/projects.json", load);
+  $.requestJSON("https://jemerson23.github.io/myPortfolio/src/projects.json", load);
 }
