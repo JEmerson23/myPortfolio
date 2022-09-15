@@ -1,14 +1,17 @@
-export const page = [document.getElementById("my_presentation"), document.getElementById("my_projects"), document.getElementById("my_contacts")];
+import * as $ from "https://jemerson23.github.io/myPortfolio/lib/abstractions.js";
 
-export const contentButton = document.getElementsByName("content");
+export const page = [$.select("#my_presentation"), $.select("#my_projects"), $.select("#my_contacts")];
+
+export const contentButton = $.select("-content");
 
 export function changeContent() {
   contentButton.forEach((element) => {
+    
     if (element.checked) {
       page[Number(element.value)].style.display = "flex";
       localStorage.setItem("contentCheckedButton",element.value);
     } else {
-      page[Number(element.value)].style.display = "none"
+      page[Number(element.value)].style.display = "none";
     }
   });
 }

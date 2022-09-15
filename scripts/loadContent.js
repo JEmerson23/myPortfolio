@@ -24,19 +24,43 @@ function Contact(link, icon, label) {
   };
 }
 
-function Project(path, anchor, where) {
-  this.path = path;
-  this.anchor = anchor;
+function Project(title, image, description, link) {
+  const self = this;
+  this.title = title;
+  this.image = image;
+  this.description = description;
+  this.link = link;
 
-  let elementImage = $.select("<img");
+  //criando projeto
 
-  elementImage.src = `${
-    this.path.project.imagePath
-  }${this.anchor.innerText.toLowerCase()}${this.path.project.imageExtension}`;
+  this.createIn = function (where) {
+    where = $.select(`#${where}`);
+    let projectBox = $.select("<li .project"),
+      projectImageBox = $.select("<figure .project__img_box"),
+      projectImage = $.select("<img"),
+      projectTitle = $.select("<a .project__title"),
+      ProjectDescription = $.select("<p .project__discription");
 
-  elementImage.setAttribute("alt", this.anchor.innerText);
+    projectTitle.innerText = this.title;
+    projectTitle.setAttribute("href", this.link);
 
-  where.appendChild(elementImage);
+    let img = new Image();
+    img.onload = function() {
+      projectImage.src = image;
+    };
+    img.onerror = function(e){
+      console.error(e);
+    };
+    img.src = this.image;
+
+    ProjectDescription.innerText = this.description;
+
+    projectBox.appendChild(projectTitle);
+    projectImageBox.appendChild(projectImage);
+    projectBox.appendChild(projectImageBox);
+    projectBox.appendChild(ProjectDescription);
+    where.insertBefore(projectBox, $.select(".empty-project")[0]);
+  };
 }
 
 export function loadContacts() {
@@ -51,38 +75,24 @@ export function loadContacts() {
       );
     }
   }
-  $.requestJSON("https://jemerson23.github.io/myPortfolio/src/contacts.json",load);
+  $.requestJSON(
+    "https://jemerson23.github.io/myPortfolio/src/contacts.json",
+    load
+  );
 }
 
 export function loadProjects() {
+  console.log("[carregando projetos...]");
   function load(data) {
-    const projects = $.select(".project");
+    for (let project of data.project) {
+      let { title, image, description, link } = project;
 
-    //intera por todos os projetos
-    for (let i = 0; i < projects.length; i++) {
-      //verifica se o projeto tem nome/link
-      if (projects[i].hasChildNodes) {
-        //pega todos os elementos do projeto
-        let childs = projects[i].childNodes;
-
-        if (childs.length == 0) continue;
-
-        //procura pela tag <a>
-        const name = (function (childs) {
-          for (let c = 0; c < childs.length; c++) {
-            if (childs[c].localName === "a") return childs[c];
-          }
-          return false;
-        })(childs);
-
-        name.setAttribute("href", `${data.githubPage}${name.innerText}`);
-
-        const project = new Project(data, name, projects[i]);
-      }
+      let p = new Project(title, image, description, link).createIn(
+        "projects_list"
+      );
+      console.log(p);
     }
   }
-  $.requestJSON(
-    "https://jemerson23.github.io/myPortfolio/src/projects.json",
-    load
-  );
+
+  $.requestJSON("/src/projects.json", load);
 }

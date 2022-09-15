@@ -2,7 +2,12 @@
 
 /*media < 600px*/
 
-@media screen and (max-width:480px){
+@media screen and (max-width: 320px){
+  .project, .empty-project {
+  }
+}
+
+@media screen and (max-width: 480px) {
   .main__box {
     box-shadow: none;
   }
@@ -14,7 +19,7 @@
   }
 
   .presentation__box > .my-name {
-    text-indent: .5em;
+    text-indent: 0.5em;
   }
 
   .summary__about__me {
@@ -25,11 +30,11 @@
     width: 2.2em;
     height: 2.2em;
   }
-  
+
   .skills__list > .skill {
     margin: 6px auto;
   }
-  
+
   .skill > .fa-brands {
     font-size: 1.3em;
   }
@@ -38,50 +43,38 @@
     font-size: 0.9em;
   }
 
-  .projects__grid {
-    box-sizing: border-box;
-    width: 99%;
-    gap: 8px;
-    grid-template-columns: repeat(2, 150px);
-    place-content: start center;
-  }
-  
-  .empty-project {
-    color: var(--text-light-color);
-    font-size: 1.2em;
-  }
-  
   .contacts__grid {
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
-  
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width: 768px) {
   .main__box {
     min-height: auto;
   }
+
+  .projects__grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-@media screen and (min-481px) and (max-width:768px) {
+@media screen and (min-481px) and (max-width: 768px) {
   .menu {
   }
-  
+
   .presentation__box {
     width: 99%;
   }
-  
-  .projects__grid {
-    grid-template-columns: repeat(3,1fr);
-  }
-
 }
 
-@media screen and (min-width: 769px) and (max-width: 900px){
-  
+@media screen and (min-width: 769px) and (max-width: 900px) {
 }
 
-@media screen and (max-width:900px){
+@media screen and (max-width: 900px) {
   .main__header {
     width: 100vw;
   }
