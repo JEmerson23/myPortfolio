@@ -1,4 +1,4 @@
-import * as $ from "/lib/abstractions.js";
+import * as $ from "https://jemerson23.github.io/myPortfolio/lib/abstractions.js";
 
 export const page = [$.select("#my_presentation"), $.select("#my_projects"), $.select("#my_contacts")];
 
