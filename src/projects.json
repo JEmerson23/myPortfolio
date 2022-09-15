@@ -3,9 +3,9 @@
   "project": [
     {
       "title": "My Portfolio",
-      "image": "/src/projects_image/myportfolio.jpg",
-      "description": "testando o tamanho do texto da descrição do projeto para ver qual o limite máximo para poder aplicar o estilo de forma correta.",
-      "link": "#"
+      "image": "https://jemerson23.github.io/myPortfolio/src/projects_image/myportfolio.jpg",
+      "description": "Um portfolio simples feito com HTML,CSS e Javascript puros.",
+      "link": "https://github.com/JEmerson23/myPortfolio"
     }
   ]
 }
