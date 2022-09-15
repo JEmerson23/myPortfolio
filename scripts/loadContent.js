@@ -24,36 +24,43 @@ function Contact(link, icon, label) {
   };
 }
 
-function Project(title,image,description,link) {
+function Project(title, image, description, link) {
   const self = this;
   this.title = title;
   this.image = image;
   this.description = description;
   this.link = link;
-  
+
   //criando projeto
-  
-  this.createIn = function(where) {
+
+  this.createIn = function (where) {
     where = $.select(`#${where}`);
-    let projectBox = $.select("<li .project"), projectImageBox = $.select("<figure .project__img_box"), projectImage = $.select("<img"), projectTitle = $.select("<a .project__title"), ProjectDescription = $.select("<p .project__discription");
-    
+    let projectBox = $.select("<li .project"),
+      projectImageBox = $.select("<figure .project__img_box"),
+      projectImage = $.select("<img"),
+      projectTitle = $.select("<a .project__title"),
+      ProjectDescription = $.select("<p .project__discription");
+
     projectTitle.innerText = this.title;
-    projectTitle.setAttribute('href',this.link);
-    
+    projectTitle.setAttribute("href", this.link);
+
     let img = new Image();
-    img.onload = function(){
+    img.onload = function() {
       projectImage.src = image;
-    }
+    };
+    img.onerror = function(e){
+      console.error(e);
+    };
     img.src = this.image;
-    
+
     ProjectDescription.innerText = this.description;
-    
+
     projectBox.appendChild(projectTitle);
     projectImageBox.appendChild(projectImage);
     projectBox.appendChild(projectImageBox);
     projectBox.appendChild(ProjectDescription);
-    where.insertBefore(projectBox,$.select(".empty-project")[0]);
-  }
+    where.insertBefore(projectBox, $.select(".empty-project")[0]);
+  };
 }
 
 export function loadContacts() {
@@ -68,22 +75,24 @@ export function loadContacts() {
       );
     }
   }
-  $.requestJSON("https://jemerson23.github.io/myPortfolio/src/contacts.json",load);
+  $.requestJSON(
+    "https://jemerson23.github.io/myPortfolio/src/contacts.json",
+    load
+  );
 }
 
 export function loadProjects() {
   console.log("[carregando projetos...]");
-  function load(data){
-    for(let project of data.project){
-      let {title,image,description,link} = project;
-      
-      let p = new Project(title,image,description,link).createIn("projects_list")
-      console.log(p)
+  function load(data) {
+    for (let project of data.project) {
+      let { title, image, description, link } = project;
+
+      let p = new Project(title, image, description, link).createIn(
+        "projects_list"
+      );
+      console.log(p);
     }
   }
 
-  $.requestJSON(
-  "/src/projects.json",
-    load
-  );
+  $.requestJSON("/src/projects.json", load);
 }

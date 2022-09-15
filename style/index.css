@@ -4,16 +4,20 @@
 
 :root {
   --shadow-color: rgba(0, 0, 0, 0.25);
-  --text-light-color: #0c0c0c;
+  --light-dark-text-color : #2f2f2f;
   --selection-color: rgba(0, 204, 255, 0.25);
   --link-color: #2ea9ff;
   --link-onclick-color: #0078cc;
+  --main-gradient: linear-gradient(to top, #1CB5E0 0%, #000851 100%);
+}
+
+body {
+  color: #fff;
+  background: var(--main-gradient);
 }
 
 .main__header {
   max-width: 900px;
-  
-  background-color: #fff;
 }
 
 .menu {
@@ -41,7 +45,7 @@
   
   max-width: 100px;
   
-  color: var(--text-light-color);
+  color: var(--light-dark-text-color );
   user-select: none;
   text-align: center;
   text-transform: uppercase;
@@ -116,7 +120,9 @@
 }
 
 .my-name::selection {
-  color: #fff;
+  opacity: 1;
+  color: var(--light-dark-text-color);
+  background-color: #fff;
 }
 
 .summary__about__me {
@@ -143,7 +149,7 @@
 }
 
 .skills__title {
-  color: var(--text-light-color);
+  color: #fff;
   font-size: 1.2em;
   text-transform: uppercase;
 }
@@ -168,8 +174,8 @@
   flex-flow: row wrap;
 
   list-style: none;
-
-  border-top: 3px inset var(--shadow-color);
+  
+  border-top: 3px inset #fff;
 }
 
 .skill {
@@ -247,6 +253,8 @@
   border-radius: 10px ;
   
   box-shadow: 2px 2px 4px var(--shadow-color);
+  
+  color: var(--light-dark-text-color);
 }
 
 .project {
@@ -299,6 +307,8 @@
 
 .project__discription {
   margin: 8px auto 4px auto;
+  padding-top: 4px;
+  
   width: 95%;
   height: 90px;
   

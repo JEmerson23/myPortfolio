@@ -38,7 +38,6 @@
     font-size: 0.9em;
   }
   
-  
   .contacts__grid {
     grid-template-columns: repeat(4,1fr);
   }
