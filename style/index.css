@@ -190,7 +190,7 @@ body {
   font-size: 2em;
 }
 
-.skils-box__label {
+.skills-box__label {
   position: absolute;
   right: auto;
   left: auto;
@@ -205,7 +205,7 @@ body {
   transition: opacity 0.5s;
 }
 
-.skills-box__skill:hover > .skils-box__label {
+.skills-box__skill:hover > .skills-box__label {
   opacity: 1;
 }
 
@@ -228,10 +228,16 @@ body {
 }
 
 .projects-grid__project {
+  position: relative;
+  
   width: 350px;
   height: 250px;
 
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 
   background-color: #fff;
 
@@ -240,15 +246,6 @@ body {
   box-shadow: 2px 2px 4px var(--shadow-color);
 
   color: var(--light-dark-text-color);
-}
-
-.projects-grid__project {
-  position: relative;
-
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
 }
 
 .projects-grid__title {

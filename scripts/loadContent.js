@@ -31,10 +31,10 @@ function Project(title, image, description, link) {
   this.createIn = function (where) {
     where = $.select(`#${where}`);
     let projectBox = $.select("<li,.projects-grid__project"),
-      projectImageBox = $.select("<figure,.projects-grid__img_box"),
+      projectImageBox = $.select("<figure,.projects-grid__img-box"),
       projectImage = $.select("<img"),
       projectTitle = $.select("<a,.projects-grid__title"),
-      ProjectDescription = $.select("<p,.projects-grid__discription");
+      ProjectDescription = $.select("<p,.projects-grid__description");
 
     projectTitle.innerText = this.title;
     projectTitle.setAttribute("href", this.link);
