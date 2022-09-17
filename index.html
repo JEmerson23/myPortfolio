@@ -40,74 +40,78 @@
     ></script>
 
     <title>José Emerson</title>
-    
+
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
       * {
-        font-family: 'Roboto Condensed', sans-serif;
+        font-family: "Roboto Condensed", sans-serif;
       }
     </style>
   </head>
   <body>
-    <header id="main_header" class="main__header">
-      <nav class="menu">
-        <label for="who_am_i" class="content-indicator"
+    <header id="main_header" class="m-header">
+      <nav class="c-menu">
+        <label for="who_am_i" class="c-menu__content-indicator"
           >quem sou<input type="radio" name="content" id="who_am_i" value="0"
         /></label>
-        <label for="projects" class="content-indicator"
+        <label for="projects" class="c-menu__content-indicator"
           >projetos<input type="radio" name="content" id="projects" value="1"
         /></label>
-        <label for="contacts" class="content-indicator"
+        <label for="contacts" class="c-menu__content-indicator"
           >contatos<input type="radio" name="content" id="contacts" value="2"
         /></label>
       </nav>
     </header>
-    <main class="main__box">
-      <section id="contents" class="contents__area">
-        <section id="my_presentation" class="content__box">
-          <div class="presentation__box">
-            <h1 class="my-name">josé emerson b. de oliveira</h1>
-            <div class="summary__about__me">
+    <main class="main-content">
+      <section id="contents" class="c-area">
+        <section id="my_presentation" class="content-box">
+          <div class="presentation-box">
+            <h1 class="presentation-box__my-name">
+              josé emerson b. de oliveira
+            </h1>
+            <div class="presentation-box__summary-about-me">
               <p>
                 Iniciante avançado em front-end.<br />
                 Criador de pixel art.
               </p>
-              <p>Especialidade em Javascript vanilla.</p>
+              <p>Especialidade em Javascript puro</p>
             </div>
           </div>
-          <div class="skills__box">
-            <h2 class="skills__title">habilidades</h2>
-            <ul class="skills__list">
-              <li class="skill">
+          <div class="skills-box">
+            <h2 class="skills-box__title">habilidades</h2>
+            <ul class="skills-box__list">
+              <li class="skills-box__skill">
                 <i class="fa-brands fa-html5"></i>
-                <i class="skill__label"> html </i>
+                <i class=""> html</i>
               </li>
-              <li class="skill">
+              <li class="skills-box__skill">
                 <i class="fa-brands fa-css3-alt"></i>
-                <i class="skill__label">css</i>
+                <i class="skills-box__label">css</i>
               </li>
-              <li class="skill">
+              <li class="skills-box__skill">
                 <i class="fa-brands fa-js"> </i>
-                <i class="skill__label">javascript</i>
+                <i class="skills-box__label">javascript</i>
               </li>
-              <li class="skill">
+              <li class="skills-box__skill">
                 <i class="fa-brands fa-git-alt"></i>
-                <i class="skill__label">git</i>
+                <i class="skills-box__label">git</i>
               </li>
-              <li class="skill">
+              <li class="skills-box__skill">
                 <i class="fa-brands fa-github"></i>
-                <i class="skill__label">github</i>
+                <i class="skills-box__label">github</i>
               </li>
             </ul>
           </div>
         </section>
-        <section id="my_projects" class="content__box">
-          <ul id="projects_list" class="projects__grid">
-            <li class="empty-project">em breve</li>
+        <section id="my_projects" class="content-box">
+          <ul id="projects_list" class="projects-grid">
+            <li class="projects-grid__project projects_list__project--empty">
+              em breve
+            </li>
           </ul>
         </section>
-        <section id="my_contacts" class="content__box">
-          <nav id="contacts_list" class="contacts__grid"></nav>
+        <section id="my_contacts" class="content-box">
+          <nav id="contacts_list" class="contacts-grid"></nav>
         </section>
       </section>
     </main>
