@@ -4,7 +4,7 @@ function Contact(link, icon, label) {
   const contactBox = $.select("<span,.contacts-grid__contact"),
     contactLink = $.select("<a,.contacts-grid__link"),
     contactIcon = $.select(`<i,.${icon} contacts-grid__icon`),
-    contactLabel = $.select("<i,contacts-grid__label");
+    contactLabel = $.select("<i,.contacts-grid__label");
     
   contactLink.setAttribute("href", link);
   contactLink.setAttribute("target", "_blank");
