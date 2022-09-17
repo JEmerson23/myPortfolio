@@ -48,7 +48,7 @@ function Project(title, image, description, link) {
     projectImageBox.appendChild(projectImage);
     projectBox.appendChild(projectImageBox);
     projectBox.appendChild(ProjectDescription);
-    where.insertBefore(projectBox, $.select(".projects-grid__project--empty")[0]);
+    where.insertBefore(projectBox, $.select("#empty_project"));
   };
 }
 
