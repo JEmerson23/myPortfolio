@@ -47,7 +47,16 @@
 }
 
 @media screen and (max-width: 768px) {
+  .m-header {
+    z-index: 1;
+    position: fixed;
+    top: 6px;
+    left: auto;
+    right: auto;
+  }
+
   .main-content {
+    margin-top: calc(4% + var(--m-header-height));
     min-height: auto;
   }
 
