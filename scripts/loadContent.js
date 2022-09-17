@@ -1,20 +1,15 @@
 import * as $ from "https://jemerson23.github.io/myPortfolio/lib/abstractions.js";
 
 function Contact(link, icon, label) {
-  const contactBox = $.select("<span"),
-    contactLink = $.select("<a"),
-    contactIcon = $.select("<i"),
-    contactLabel = $.select("<i");
-
-  contactIcon.setAttribute("class", `${icon} contact__icon`);
+  const contactBox = $.select("<span,.contacts-grid__contact"),
+    contactLink = $.select("<a,.contacts-grid__link"),
+    contactIcon = $.select(`<i,.${icon} contacts-grid__icon`),
+    contactLabel = $.select("<i,contacts-grid__label");
+    
   contactLink.setAttribute("href", link);
   contactLink.setAttribute("target", "_blank");
 
   contactLabel.textContent = label;
-
-  contactBox.setAttribute("class", "contact");
-  contactLink.setAttribute("class", "contact__link");
-  contactLabel.setAttribute("class", "contact__label");
 
   this.addIn = (where) => {
     contactBox.appendChild(contactIcon);
@@ -35,23 +30,17 @@ function Project(title, image, description, link) {
 
   this.createIn = function (where) {
     where = $.select(`#${where}`);
-    let projectBox = $.select("<li .project"),
-      projectImageBox = $.select("<figure .project__img_box"),
+    let projectBox = $.select("<li,.projects-grid__project"),
+      projectImageBox = $.select("<figure,.projects-grid__img_box"),
       projectImage = $.select("<img"),
-      projectTitle = $.select("<a .project__title"),
-      ProjectDescription = $.select("<p .project__discription");
+      projectTitle = $.select("<a,.projects-grid__title"),
+      ProjectDescription = $.select("<p,.projects-grid__discription");
 
     projectTitle.innerText = this.title;
     projectTitle.setAttribute("href", this.link);
-
-    let img = new Image();
-    img.onload = function() {
-      projectImage.src = image;
-    };
-    img.onerror = function(e){
-      console.error(e);
-    };
-    img.src = this.image;
+   
+   projectImage.setAttribute("alt",this.title);
+   projectImage.src = this.image;
 
     ProjectDescription.innerText = this.description;
 
@@ -59,7 +48,7 @@ function Project(title, image, description, link) {
     projectImageBox.appendChild(projectImage);
     projectBox.appendChild(projectImageBox);
     projectBox.appendChild(ProjectDescription);
-    where.insertBefore(projectBox, $.select(".empty-project")[0]);
+    where.insertBefore(projectBox, $.select(".projects-grid__project--empty")[0]);
   };
 }
 
