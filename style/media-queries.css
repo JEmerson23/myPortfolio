@@ -2,58 +2,56 @@
 
 /*media < 600px*/
 
-@media screen and (max-width: 320px){
-  .project, .empty-project {
-  }
+@media screen and (max-width: 320px) {
 }
 
 @media screen and (max-width: 480px) {
-  .main__box {
+  .main-content {
     box-shadow: none;
   }
 
-  .presentation__box {
+  .presentation-box {
     margin: 0 auto 2% 4%;
     max-width: 98%;
     align-self: flex-start;
   }
 
-  .presentation__box > .my-name {
+  .presentation-box__my-name {
     text-indent: 0.5em;
   }
 
-  .summary__about__me {
+  .presentation-box__summary-about-me {
     margin-left: 2em;
   }
 
-  .skill {
+  .skills-box__skill {
     width: 2.2em;
     height: 2.2em;
   }
 
-  .skills__list > .skill {
+  .skills-box__list > .skills-box__skill {
     margin: 6px auto;
   }
 
-  .skill > .fa-brands {
+  .skills-box__skill > .fa-brands {
     font-size: 1.3em;
   }
 
-  .skill__label {
+  .skills-box__label {
     font-size: 0.9em;
   }
 
-  .contacts__grid {
+  .contacts-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media screen and (max-width: 768px) {
-  .main__box {
+  .main-content {
     min-height: auto;
   }
 
-  .projects__grid {
+  .projects-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -63,10 +61,7 @@
 }
 
 @media screen and (min-481px) and (max-width: 768px) {
-  .menu {
-  }
-
-  .presentation__box {
+  .presentation-box {
     width: 99%;
   }
 }
@@ -75,7 +70,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .main__header {
+  .m-header {
     width: 100vw;
   }
 }
