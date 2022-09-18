@@ -5,7 +5,7 @@ function Contact(link, icon, label) {
     contactLink = $.select("<a,.contacts-grid__link"),
     contactIcon = $.select(`<i,.${icon} contacts-grid__icon`),
     contactLabel = $.select("<i,.contacts-grid__label");
-    
+
   contactLink.setAttribute("href", link);
   contactLink.setAttribute("target", "_blank");
 
@@ -38,9 +38,9 @@ function Project(title, image, description, link) {
 
     projectTitle.innerText = this.title;
     projectTitle.setAttribute("href", this.link);
-   
-   projectImage.setAttribute("alt",this.title);
-   projectImage.src = this.image;
+
+    projectImage.setAttribute("alt", this.title);
+    projectImage.src = this.image;
 
     ProjectDescription.innerText = this.description;
 
@@ -83,5 +83,8 @@ export function loadProjects() {
     }
   }
 
-  $.requestJSON("https://jemerson23.github.io/myPortfolio/src/projects.json", load);
+  $.requestJSON(
+    "https://jemerson23.github.io/myPortfolio/src/projects.json",
+    load
+  );
 }
