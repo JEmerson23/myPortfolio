@@ -57,6 +57,8 @@
 
   .main-content {
     margin-top: calc(4% + var(--m-header-height));
+    padding: 3%;
+    
     min-height: auto;
   }
 
