@@ -13,6 +13,10 @@
   --m-header-height: 64px;
 }
 
+html {
+  scroll-padding-top: 70px;
+}
+
 body {
   color: #fff;
   background: var(--main-gradient);
@@ -20,7 +24,7 @@ body {
 
 .m-header {
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 900px;j
 }
 
 .c-menu {
@@ -93,8 +97,6 @@ body {
 
 .content-box {
   margin: 0 auto 0 auto;
-
-  max-width: 99%;
 
   display: flex;
   align-items: center;

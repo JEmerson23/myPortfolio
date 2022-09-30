@@ -64,10 +64,12 @@ export function loadContacts() {
       );
     }
   }
+
   $.requestJSON(
-    "https://jemerson23.github.io/myPortfolio/src/contacts.json",
-    load
-  );
+      "https://jemerson23.github.io/myPortfolio/src/contacts.json",
+        load
+    );
+
 }
 
 export function loadProjects() {
@@ -83,8 +85,8 @@ export function loadProjects() {
     }
   }
 
-  $.requestJSON(
-    "https://jemerson23.github.io/myPortfolio/src/projects.json",
-    load
-  );
+    $.requestJSON(
+      "https://jemerson23.github.io/myPortfolio/src/projects.json",
+        load
+    );
 }

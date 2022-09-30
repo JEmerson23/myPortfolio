@@ -8,10 +8,10 @@ export function changeContent() {
   contentButton.forEach((element) => {
     
     if (element.checked) {
-      page[Number(element.value)].style.display = "flex";
+      //page[Number(element.value)].style.display = "flex";
       localStorage.setItem("contentCheckedButton",element.value);
     } else {
-      page[Number(element.value)].style.display = "none";
+      //page[Number(element.value)].style.display = "none";
     }
   });
 }
