@@ -4,24 +4,16 @@ export const page = [$.select("#my_presentation"), $.select("#my_projects"), $.s
 
 export const contentButton = $.select("-content");
 
-var animation;
-
-/*function pageTransition(){
-  if(){
-    animation = window.requestAnimationFrame(pageTransition);
-  } else {
-    window.cancelAnimationFrame(animation);
-  }
-}*/
-
 export function changeContent() {
   contentButton.forEach((element) => {
+    let _page = page[Number(element.value)];
+    
     if (element.checked) {
-      page[Number(element.value)].style.cssText = "display:flex;";
+      _page.style.cssText = "display:flex;animation-name:change-content-on;";
       
       localStorage.setItem("contentCheckedButton",element.value);
     } else {
-      page[Number(element.value)].style.cssText = "display:none;";
+      _page.style.cssText = "display:none;";
     }
   });
 }

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import "https://jemerson23.github.io/myPortfolio/style/reset.css";
+@import "/style/reset.css";
 
 @import "/style/animations.css";
 
@@ -10,7 +10,7 @@
   --selection-color: rgba(0, 204, 255, 0.25);
   --link-color: #2ea9ff;
   --link-onclick-color: #0078cc;
-  --main-gradient: linear-gradient(0deg, rgb(50,50,50) 25%, rgba(0,0,0,1) 75%);
+  --main-gradient: linear-gradient(0deg, rgb(50,50,50) 15%, rgba(0,0,0,1) 75%);
   
   --m-header-height: 64px;
   
@@ -24,7 +24,7 @@ body {
 }
 
 .m-header {
-  margin: 0 auto;
+  z-index: 1;
   max-width: 900px;
 }
 
@@ -94,45 +94,44 @@ body {
 }
 
 .content-box {
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
 
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  
+  animation-duration: .5s;
+  animation-iteration-count: 1;
 }
 
 .c-title {
-  align-self: flex-start;
+  font-size: 1.3em;
+  margin: 0.3% 0 0.3%;
   text-align: left;
   text-transform: uppercase;
-  font-size: 1.3em;
-  margin: .3em 0 .3em .3em;
   position: relative;
   width: fit-content;
 }
 
 .c-title::after {
   content: "";
-  
-  width: 100%;
-  height: .2em;
-  
   background: var(--c-title-decoration-color);
-  
+  height: .2em;
   position: absolute;
   bottom: -2px;
   left: 0;
+  width: 100%;
 }
 
 .presentation-box {
-  max-width: 400px;
-  margin: 1em auto 1em auto;
+  max-width: 450px;
+  margin: 1% auto 1% auto;
   align-self: center;
 }
 
 .presentation-box__my-name {
-  align-self: center;
+  align-self: flex-start;
   font-size: 1.2em;
   text-align: left;
 }
@@ -143,30 +142,25 @@ body {
 }
 
 .presentation-box__summary-about-me > p {
-  
   font-size: 1.18em;
-  
-  max-width: 99%;
-  
+  line-height: 1.25em;
   overflow-wrap: break-word;
-  
   text-align: left;
-  
+  width: fit-content;
   word-break: break-word;
   word-wrap: break-word;
 }
 
 .skills-box {
-  margin: 1em auto 1em auto;
-
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-shrink: 1;
   flex-direction: column;
+  justify-content: center;
+  margin: 1% auto 1% auto;
 }
 
 .skills-box__title {
-  color: #fff;
   font-size: 1.2em;
   text-transform: uppercase;
 }
@@ -176,64 +170,63 @@ body {
 }
 
 .skills-box__list {
-  padding-top: .7em;
-
-  width: 50%;
-  min-width: 200px;
-  min-height: 200px;
-  max-width: 450px;
-  max-height: 450px;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-flow: row wrap;
-
+  display: grid;
+  place-content: center;
+  gap: 10px 10px;
+  grid-template-columns: repeat(5 , 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  height: auto;
   list-style: none;
+  max-width: 450px;
+  min-height: fit-content;
+  padding-top: .7em;
+  position: relative;
+  width: 50%;
+}
 
-  border-top: 3px inset #fff;
+.skills-box__list::before {
+  content: "";
+  background-color: #fff;
+  height: 3px;
+  position: absolute;
+  left: auto;
+  right: auto;
+  top: 0;
+  width: 100%;
 }
 
 .skills-box__skill {
-  position: relative;
-
-  width: 3em;
-  height: 3em;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   border: none;
   border-radius: 6%;
-
-  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  margin: .5em auto;
+  position: relative;
   transition: border .25s;
-}
-
-.skills-box__list > .skills-box__skill {
-  padding: 0;
-  margin: 8px auto;
+  width: 3em;
 }
 
 .skills-box__skill > .fa-brands {
   font-size: 2em;
 }
 
-.skills-box__label {
-  
+.skills-box__icon {
   font-size: 1em;
-  
+  font-style: normal;
+  font-weight: 600;
+}
+
+.skills-box__label {
+  font-size: 1em;
   opacity: 0;
-  
   position: absolute;
   bottom: -1.6em;
   left: auto;
   right: auto;
-
   text-align: center;
   text-transform: uppercase;
-
   transition: opacity .3s;
 }
 
@@ -374,11 +367,9 @@ body {
 
 .contacts-grid__link {
   all: unset;
-
   position: absolute;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
 }
@@ -396,7 +387,7 @@ body {
   border: 1px solid var(--selection-color);
 }
 
-.content-box, .m-header {
+.c-area, .m-header {
   animation-name: onload;
   animation-duration: 2.5s;
   animation-fill-mode: forwards;

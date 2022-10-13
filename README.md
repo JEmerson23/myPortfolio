@@ -11,7 +11,7 @@ _EX.:_
   </li>
 ```
 
-* Para adicionar um novo contato adicione um objeto com os seguintes elementos  
+* Para adicionar um novo contato adicione um objeto com os seguintes elementos na array "contact" em ```/src/contacts.json```   
  ```
    { 
     "link": "link da sua rede social",
@@ -19,5 +19,3 @@ _EX.:_
     "label": "nome da rede social"
    }
  ```  
- na array "contact" em ```/src/contacts.json```
-  
