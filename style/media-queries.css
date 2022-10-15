@@ -1,29 +1,21 @@
 @charset "UTF-8";
 
-/*media < 600px*/
-
 @media screen and (max-width: 320px) {
+  .c-title, .skills-box__title  {
+    font-size: 1.2em;
+  }
+  
+  .presentation-box__my-name {
+    font-size: 1.1;
+  }
+  
+  .presentation-box__summary-about-me > p {
+    font-size: 1em;
+    line-height: 1em;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .main-content {
-    box-shadow: none;
-  }
-
-  .presentation-box {
-    margin: 0 auto 2% 4%;
-    max-width: 98%;
-    align-self: flex-start;
-  }
-
-  .presentation-box__my-name {
-    text-indent: 0.5em;
-  }
-
-  .presentation-box__summary-about-me {
-    margin-left: 2em;
-  }
-
   .skills-box__skill {
     width: 2.2em;
     height: 2.2em;
@@ -47,33 +39,30 @@
 }
 
 @media screen and (max-width: 768px) {
-  .m-header {
-    z-index: 1;
-    position: fixed;
-    top: 6px;
-    left: auto;
-    right: auto;
-  }
-
   .main-content {
-    margin-top: calc(4% + var(--m-header-height));
-    padding: 3%;
-    
-    min-height: auto;
+    margin-top: 3%;
   }
 
   .projects-grid {
     display: flex;
+    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    max-width: 400px;
+    overflow-y: auto;
   }
 }
 
-@media screen and (min-481px) and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width: 320px){
+  
+  .c-title {
+    margin-left: 3%;
+    align-self: flex-start;
+  }
+  
   .presentation-box {
-    width: 99%;
+    max-width: 90%;
   }
 }
 

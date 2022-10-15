@@ -2,24 +2,29 @@
 
 @import "https://jemerson23.github.io/myPortfolio/style/reset.css";
 
+@import "https://jemerson23.github.io/myPortfolio/style/animations.css";
+
 :root {
   --shadow-color: rgba(0, 0, 0, 0.25);
   --light-dark-text-color: #2f2f2f;
   --selection-color: rgba(0, 204, 255, 0.25);
   --link-color: #2ea9ff;
   --link-onclick-color: #0078cc;
-  --main-gradient: linear-gradient(to top, #1cb5e0 0%, #000851 100%);
+  --main-gradient: linear-gradient(0deg, rgb(50,50,50) 15%, rgba(0,0,0,1) 75%);
   
   --m-header-height: 64px;
+  
+  --c-title-decoration-color: rgb(4,133,255);
 }
 
 body {
   color: #fff;
   background: var(--main-gradient);
+  background-size: 100vw 100vh;
 }
 
 .m-header {
-  margin: 0 auto;
+  z-index: 1;
   max-width: 900px;
 }
 
@@ -44,14 +49,12 @@ body {
 }
 
 .c-menu__content-indicator {
-  position: relative;
-
-  max-width: 100px;
-
   color: var(--light-dark-text-color);
-  user-select: none;
+  position: relative;
   text-align: center;
   text-transform: uppercase;
+  user-select: none;
+  width: fit-content;
 }
 
 .c-menu__content-indicator > input[type="radio"] {
@@ -81,139 +84,158 @@ body {
 }
 
 .c-area {
+  overflow-x: hidden;
+  max-width: 900px;
+  
   margin: 0 auto;
   padding-top: 2%;
-
-  max-width: 900px;
-  min-height: 100vh;
-
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .content-box {
-  margin: 0 auto 0 auto;
-
-  max-width: 99%;
-
+  animation-duration: .5s;
+  animation-iteration-count: 1;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
+.c-title {
+  font-size: 1.3em;
+  margin: 0.3% 0 0.3%;
+  text-align: left;
+  text-transform: uppercase;
+  position: relative;
+  width: fit-content;
+}
+
+.c-title::after {
+  content: "";
+  background: var(--c-title-decoration-color);
+  height: .2em;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+}
+
+/*Apresentação*/
+
 .presentation-box {
-  max-width: 400px;
-  margin: 1em auto 1em auto;
+  max-width: 450px;
+  margin: 1% auto 1% auto;
   align-self: center;
 }
 
 .presentation-box__my-name {
-  align-self: center;
-  font-size: 1.4em;
+  align-self: flex-start;
+  font-size: 1.2em;
   text-align: left;
-  text-transform: uppercase;
-  vertical-align: middle;
 }
 
 .presentation-box__summary-about-me {
+  margin: 3.5% auto 4% auto;
   width: 100%;
 }
 
 .presentation-box__summary-about-me > p {
-  max-width: 99%;
-
-  font-size: 1.3em;
+  font-size: 1.18em;
+  line-height: 1.25em;
   overflow-wrap: break-word;
   text-align: left;
+  width: fit-content;
   word-break: break-word;
   word-wrap: break-word;
 }
 
 .skills-box {
-  margin: 16px auto 16px auto;
-
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-shrink: 1;
   flex-direction: column;
+  justify-content: center;
+  margin: 1% auto 1% auto;
 }
 
 .skills-box__title {
-  color: #fff;
   font-size: 1.2em;
   text-transform: uppercase;
 }
 
 .skills-box > .skills-box__title:first-child {
-  margin: 0 auto;
   align-self: center;
 }
 
 .skills-box__list {
-  padding-top: 10px;
-
-  width: 50%;
-  min-width: 200px;
-  min-height: 200px;
-  max-width: 450px;
-  max-height: 450px;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-flow: row wrap;
-
+  display: grid;
+  place-content: center;
+  gap: 10px 10px;
+  grid-template-columns: repeat(5 , 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  height: auto;
   list-style: none;
+  max-width: 450px;
+  min-height: fit-content;
+  padding-top: .7em;
+  position: relative;
+  width: 50%;
+}
 
-  border-top: 3px inset #fff;
+.skills-box__list::before {
+  content: "";
+  background-color: #fff;
+  height: 3px;
+  position: absolute;
+  left: auto;
+  right: auto;
+  top: 0;
+  width: 100%;
 }
 
 .skills-box__skill {
-  position: relative;
-
-  width: 3em;
-  height: 3em;
-
+  border: none;
+  border-radius: 6%;
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  border: 1px solid #000;
-  border-radius: 5px;
-
-  box-sizing: border-box;
-}
-
-.skills-box__list > .skills-box__skill {
-  padding: 0;
-  margin: 8px auto;
+  justify-content: center;
+  height: 3em;
+  margin: .5em auto;
+  position: relative;
+  transition: border .25s;
+  width: 3em;
 }
 
 .skills-box__skill > .fa-brands {
   font-size: 2em;
 }
 
-.skills-box__label {
-  position: absolute;
-  right: auto;
-  left: auto;
-  bottom: -22px;
-
-  opacity: 0;
-
+.skills-box__icon {
   font-size: 1em;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.skills-box__label {
+  font-size: 1em;
+  opacity: 0;
+  position: absolute;
+  bottom: -1.6em;
+  left: auto;
+  right: auto;
   text-align: center;
   text-transform: uppercase;
+  transition: opacity .3s;
+}
 
-  transition: opacity 0.5s;
+.skills-box__skill:hover {
+  border: 2px solid #e4e4e4;
 }
 
 .skills-box__skill:hover > .skills-box__label {
   opacity: 1;
 }
 
-/*projects*/
+/*Projetos*/
 
 .projects-grid {
   padding: 0;
@@ -227,11 +249,8 @@ body {
   list-style: none;
 }
 
-.projects-grid > .projects-grid__project {
-  margin: 0.5em auto 0.5em auto;
-}
-
 .projects-grid__project {
+  margin: 0.5em auto 0.5em auto;
   position: relative;
   
   width: 350px;
@@ -312,17 +331,14 @@ body {
   align-items: center;
 }
 
-/*contacts*/
+/*Contatos*/
 
 .contacts-grid {
-  align-self: center;
-
-  margin: 0 auto;
-
+  margin: 4% auto 0 auto;
   display: grid;
-  gap: 2em;
+  gap: 1.5em 1.5em;
   grid-template-columns: repeat(5, 1fr);
-  place-content: start center;
+  grid-template-rows: repeat(5, 1fr);
 }
 
 .contacts-grid__contact {
@@ -345,24 +361,27 @@ body {
 
 .contacts-grid__link {
   all: unset;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
   height: 100%;
+  position: absolute;
+  left: auto;
+  right: auto;
+  top: 0;
+  width: 100%;
 }
 
 .contacts-grid__label {
-  user-select: none;
-  align-self: center;
   font-style: normal;
   font-size: 1em;
-
   text-align: center;
+  user-select: none;
 }
 
 .contacts-grid__contact:active {
   border: 1px solid var(--selection-color);
+}
+
+.c-area, .m-header {
+  animation-name: onload;
+  animation-duration: 2.5s;
+  animation-fill-mode: forwards;
 }

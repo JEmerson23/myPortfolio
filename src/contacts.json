@@ -6,12 +6,17 @@
       "label": "github"
     },
     {
+      "link": "https://stackoverflow.com/users/20194582/jemerson23",
+      "icon": "fa-brands fa-stack-overflow",
+      "label": "stackoverflow"
+    },
+    {
       "link": "https://pin.it/2GnvS1f",
       "icon": "fa-brands fa-square-pinterest",
       "label": "pinterest"
     },
     {
-      "link": "https://www.instagram.com//",
+      "link": "https://www.instagram.com/",
       "icon": "fa-brands fa-square-instagram",
       "label": "instagram"
     }

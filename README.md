@@ -18,5 +18,4 @@ _EX.:_
     "icone": "icone do site https://fontawesome.com/",
     "label": "nome da rede social"
    }
- ```
-  
+```  
