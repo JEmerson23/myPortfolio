@@ -6,6 +6,12 @@
       "image": "https://jemerson23.github.io/myPortfolio/src/projects_image/myportfolio.jpg",
       "description": "Um portfolio simples feito com HTML,CSS e Javascript puros.",
       "link": "https://github.com/JEmerson23/myPortfolio"
+    },
+    {
+      "title": "Simples Stopwatch",
+      "image": "https://jemerson23.github.io/myPortfolio/src/projects_image/stopwatch.jpg",
+      "description": "Um cronômetro simples feito com HTML, CSS, e Javascript puros.",
+      "link": "https://github.com/JEmerson23/stopwatch"
     }
   ]
 }
