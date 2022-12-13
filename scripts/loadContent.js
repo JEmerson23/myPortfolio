@@ -73,7 +73,6 @@ export function loadContacts() {
 }
 
 export function loadProjects() {
-  console.log("[carregando projetos...]");
   function load(data) {
     for (let project of data.project) {
       let { title, image, description, link } = project;

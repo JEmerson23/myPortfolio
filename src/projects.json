@@ -12,6 +12,12 @@
       "image": "https://jemerson23.github.io/myPortfolio/src/projects_image/stopwatch.jpg",
       "description": "Um cronômetro simples feito com HTML, CSS, e Javascript puros.",
       "link": "https://github.com/JEmerson23/stopwatch"
+    },
+    {
+      "title":"one week of codewars",
+      "image":"https://jemerson23.github.io/myPortfolio/src/projects_image/codewars-logo.png",
+      "description":"Uma semana treinado algoritmo no site codewars",
+      "link":"https://github.com/JEmerson23/one_week_of_codewar"
     }
   ]
 }

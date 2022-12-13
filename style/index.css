@@ -336,7 +336,7 @@ body {
 .contacts-grid {
   margin: 4% auto 0 auto;
   display: grid;
-  gap: 1.5em 1.5em;
+  gap: 2em 2em;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
 }
@@ -357,6 +357,7 @@ body {
 .contacts-grid__icon {
   align-self: center;
   font-size: 2em;
+  user-select: none;
 }
 
 .contacts-grid__link {
@@ -370,10 +371,13 @@ body {
 }
 
 .contacts-grid__label {
+  display: flex;
+  justify-content: center;
   font-style: normal;
-  font-size: 1em;
+  font-size: .85em;
   text-align: center;
-  user-select: none;
+  width: fit-content;
+  max-width: 95%;
 }
 
 .contacts-grid__contact:active {
