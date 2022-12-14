@@ -5,19 +5,22 @@
       "title": "My Portfolio",
       "image": "https://jemerson23.github.io/myPortfolio/src/projects_image/myportfolio.jpg",
       "description": "Um portfolio simples feito com HTML,CSS e Javascript puros.",
-      "link": "https://github.com/JEmerson23/myPortfolio"
+      "link": "https://github.com/JEmerson23/myPortfolio",
+      "date": "undefined"
     },
     {
       "title": "Simples Stopwatch",
       "image": "https://jemerson23.github.io/myPortfolio/src/projects_image/stopwatch.jpg",
       "description": "Um cronômetro simples feito com HTML, CSS, e Javascript puros.",
-      "link": "https://github.com/JEmerson23/stopwatch"
+      "link": "https://github.com/JEmerson23/stopwatch",
+      "date": "undefined"
     },
     {
       "title":"one week of codewars",
       "image":"https://jemerson23.github.io/myPortfolio/src/projects_image/codewars-logo.png",
       "description":"Uma semana treinado algoritmo no site codewars",
-      "link":"https://github.com/JEmerson23/one_week_of_codewar"
+      "link":"https://github.com/JEmerson23/one_week_of_codewar",
+      "date": "undefined"
     }
   ]
 }

@@ -1,4 +1,5 @@
-import * as $ from "https://jemerson23.github.io/myPortfolio/lib/abstractions.js";
+//import * as $ from "https://jemerson23.github.io/myPortfolio/lib/abstractions.js";
+import * as $ from "/lib/abstractions.js";
 
 function Contact(link, icon, label) {
   const contactBox = $.select("<span,.contacts-grid__contact"),
