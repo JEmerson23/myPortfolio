@@ -2,17 +2,20 @@
 
 const urlSite = "https://jemerson23.github.io/myPortfolio";
 
-const currentDate = new Date(), date = `${currentDate.getDate()}/${currentDate.getMonth()+1}/${currentDate.getFullYear()}`,
-hour = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+const yes = new RegExp(/[y,ye,yes,ys,ye,Y,s]/i), no = new RegExp(/[n,no,N]/i);
+
+const currentDate = new Date();
 
 const readline = require('readline');
+const file = require('fs');
+//#------------#
+
+const date = `${currentDate.getDate()}/${currentDate.getMonth()+1}/${currentDate.getFullYear()}`,
+hour = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+
 const line = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-});
-const confirmSave = readline.createInterface({
-     input: process.stdin,
-     output: process.stdout
 });
 
 const project = {
@@ -23,8 +26,32 @@ const project = {
   date: `${date}-${hour}`
 };
 
+function saveProject(){
+  line.question("salvar projeto?",function(answer){
+    let listOfProjects;
+    
+    try {
+     const projectsData = file.readFileSync("./projects.json","utf-8");
+     
+     listOfProjects = JSON.parse(projectsData);
+     listOfProjects.project.push(project);
+     
+    } catch(err){
+      console.error(err);
+    }
+    
+    try{
+      const saveFile = file.writeFileSync("./projects.json",JSON.stringify(listOfProjects));
+    }catch(err){
+      console.error(err);
+    }
+    
+    line.close();
+  });
+}
+
 line.question("adicionar projeto ao portfólio? [y/n]\n",function (answer) {
-  if(/[y,ye,yes,ys,ye,Y,s]/i.test(answer)){
+  if(yes.test(answer)){
     console.log("adicione título,arquivo de imagem,descrição e link.\n");
       
       //title
@@ -39,44 +66,22 @@ line.question("adicionar projeto ao portfólio? [y/n]\n",function (answer) {
             //link
             line.question("link: ",function(inputLink){
               project.link = inputLink.replace(/\s/g,'');
-              line.close();
-              console.log(JSON.stringify(project))
+              saveProject();
             });
           });
         });
       });
   } else {
-    if(/[n,no,N]/.test(answer))
+    if(no.test(answer))
      console.log(`[ok, sessão encerrada...]`);
     else
      console.error(`[${answer} não é uma resposta válida...]`);
-     line.close();
+    line.close();
   }
   
 });
 
-const projectFiles = require('fs');
-
 line.on('close',function(){
-  console.log("file");
-  let listOfProjects;
-  
-  try{
-   const data = projectFiles.readFileSync("./projects.json","utf-8");
-   
-   listOfProjects = JSON.parse(data);
-   
-   listOfProjects.project.push(project);
-   
-   let {title,image,description,link} = project;
-   
-   confirmSave.question(`quer salvar o projeto?\n1| ${title}\n2| ${image}\n3| ${description}\n4| ${link}\nescolha um item para editar ou digite [y].`,function (answer) {
-     //editar arquivo
-   })
-   
-  } catch(err){
-   console.log(err);
-  }
-  
+  console.log(`[sessão concluída...]`);
   process.exit(0);
 });
