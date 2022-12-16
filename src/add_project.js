@@ -26,62 +26,76 @@ const project = {
   date: `${date}-${hour}`
 };
 
-function saveProject(){
-  line.question("salvar projeto?",function(answer){
-    let listOfProjects;
-    
-    try {
-     const projectsData = file.readFileSync("./projects.json","utf-8");
-     
-     listOfProjects = JSON.parse(projectsData);
-     listOfProjects.project.push(project);
-     
-    } catch(err){
-      console.error(err);
+function saveProject() {
+  let {
+    title,
+    image,
+    description,
+    link
+  } = project;
+
+  console.log(`1| title: ${title}\n2| image: ${image}\n3| description: ${description}\n4| link: ${link}\n`);
+
+  line.question("salvar projeto? [y/n]\n", function(answer) {
+    if (yes.test(answer)) {
+      let listOfProjects;
+
+      try {
+        const projectsData = file.readFileSync("./projects.json", "utf-8");
+
+        listOfProjects = JSON.parse(projectsData);
+        listOfProjects.project.push(project);
+
+      } catch(err) {
+        console.error(err);
+      }
+
+      try {
+        const saveFile = file.writeFileSync("./projects.json", JSON.stringify(listOfProjects));
+      }catch(err) {
+        console.error(err);
+      }
+
+      line.close();
+    } else if (no.test(answer)) {
+      line.close();
+    } else {
+      console.error(`[${answer} resposta não é válida...]`);
     }
-    
-    try{
-      const saveFile = file.writeFileSync("./projects.json",JSON.stringify(listOfProjects));
-    }catch(err){
-      console.error(err);
-    }
-    
-    line.close();
   });
 }
 
-line.question("adicionar projeto ao portfólio? [y/n]\n",function (answer) {
-  if(yes.test(answer)){
+line.question("adicionar projeto ao portfólio? [y/n]\n", function (answer) {
+  if (yes.test(answer)) {
     console.log("adicione título,arquivo de imagem,descrição e link.\n");
-      
-      //title
-      line.question("título: ",function(inputTitle){
-        project.title = inputTitle.trim();
-        //image
-        line.question("image: ",function(inputImage) {
-          project.image += inputImage.trim();
-          //description
-          line.question("description: ", function(inputDescription){
-            project.description = inputDescription.trim();
-            //link
-            line.question("link: ",function(inputLink){
-              project.link = inputLink.replace(/\s/g,'');
-              saveProject();
-            });
+
+    //title
+    line.question("título: ", function(inputTitle) {
+      project.title = inputTitle.trim();
+      //image
+      line.question("image: ", function(inputImage) {
+        project.image += inputImage.trim();
+        //description
+        line.question("description: ", function(inputDescription) {
+          project.description = inputDescription.trim();
+          //link
+          line.question("link: ", function(inputLink) {
+            project.link = inputLink.replace(/\s/g, '');
+            saveProject();
           });
         });
       });
+    });
+  } else if (no.test(answer)) {
+    console.log(`[ok, sessão encerrada...]`);
+    line.close();
   } else {
-    if(no.test(answer))
-     console.log(`[ok, sessão encerrada...]`);
-    else
-     console.error(`[${answer} não é uma resposta válida...]`);
+    console.error(`[${answer} não é uma resposta válida...]`);
     line.close();
   }
-  
 });
 
-line.on('close',function(){
+line.on('close', function() {
   console.log(`[sessão concluída...]`);
   process.exit(0);
 });

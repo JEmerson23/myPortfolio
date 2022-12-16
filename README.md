@@ -2,13 +2,11 @@
  
 ## features
 
-* Para adicionar um projeto lista basta adicionar o nome do repositório em uma tag ```a```
- que esteja dentro de uma tag com class "project".  
+* Para adicionar um projeto a lista basta adicionar abrir o arquivo ```. /src/add_project.js``` com nodejs.  
 _EX.:_  
- ```
-  <li class ="project">
-   <a>myPortfolio</a>
-  </li>
+```
+  //dentro do diretorio src no terminal
+  node add_project.js
 ```
 
 * Para adicionar um novo contato adicione um objeto com os seguintes elementos na array "contact" em ```/src/contacts.json```.  
